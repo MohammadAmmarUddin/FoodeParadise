@@ -1,0 +1,146 @@
+[
+  {
+      "_id": "642c155b2c4774f05c36eeaa",
+      "name": "Mediterranean Tuna Delight",
+      "recipe": "Chargrilled fresh tuna steak (served medium rare) on a bed of mixed greens with French beans.",
+      "image": "https://i.ibb.co/QPqCF5q/Grill-1.jpg",
+      "category": "Grill",
+      "price": 14.7
+  },
+  {
+      "_id": "642c155b2c4774f05c36eeb9",
+      "name": "Vanilla Espresso Bliss",
+      "recipe": "Rich espresso with a touch of vanilla and a dollop of whipped cream.",
+      "image": "https://i.ibb.co/WKWPxn3/coffe5.jpg",
+      "category": "drinks",
+      "price": 14.7
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee7c",
+      "name": "Elegant Duck Roast",
+      "recipe": "Roasted duck breast (served pink) with creamy gratin potato and a griottine cherry sauce.",
+      "image": "https://i.ibb.co/bzVvsZW/coffe4.jpg",
+      "category": "popular",
+      "price": 14.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee88",
+      "name": "Spiced Bacon-Wrapped Haddock",
+      "recipe": "Pan roasted haddock fillet wrapped in smoked French bacon, served with pea purée and tomato-chive vinaigrette.",
+      "image": "https://i.ibb.co/LRM9Vyx/shawarma1.jpg",
+      "category": "shawarma",
+      "price": 12.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee7a",
+      "name": "Cherry Glazed Duck",
+      "recipe": "Roasted duck breast (served pink) with gratin potato and a sweet cherry sauce.",
+      "image": "https://i.ibb.co/VCnYwBZ/shawarma2.jpg",
+      "category": "popular",
+      "price": 14.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee8c",
+      "name": "Smoky Bacon Haddock",
+      "recipe": "Pan roasted haddock fillet with smoked bacon, pea purée, and tomato-chive vinaigrette.",
+      "image": "https://i.ibb.co/VJrh5nG/shawarma3.jpg",
+      "category": "shawarma",
+      "price": 12.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee94",
+      "name": "BBQ Haddock Extravaganza",
+      "recipe": "Haddock fillet wrapped in bacon, served with a BBQ glaze and grilled vegetables.",
+      "image": "https://i.ibb.co/YdL1zRT/BBQ7.jpg",
+      "category": "bbq",
+      "price": 12.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee9e",
+      "name": "BBQ Chicken & Avocado Bliss",
+      "recipe": "Chargrilled chicken with avocado, baby gem lettuce, and a BBQ mustard dressing.",
+      "image": "https://i.ibb.co/4Jx8Ydx/BBQ5.jpg",
+      "category": "bbq",
+      "price": 12.9
+  },
+  {
+      "_id": "642c155b2c4774f05c36eea6",
+      "name": "Herb-Roasted Pork Belly",
+      "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme, and calvados jus.",
+      "image": "https://i.ibb.co/ssT13Pp/Grill-2.jpg",
+      "category": "Grill",
+      "price": 13.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36eeaf",
+      "name": "Coffee-Infused Haddock",
+      "recipe": "Pan roasted haddock fillet with a coffee-infused glaze and a side of pea purée.",
+      "image": "https://i.ibb.co/qMF5sHv/coffe1.jpg",
+      "category": "coffee",
+      "price": 12.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee89",
+      "name": "Shawarma Chicken Delight",
+      "recipe": "Pan roasted pork belly with shawarma spices, served with a refreshing cabbage and apple salad.",
+      "image": "https://i.ibb.co/d6xByyZ/shawarma4.jpg",
+      "category": "shawarma",
+      "price": 13.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee8a",
+      "name": "Shawarma Haddock Wrap",
+      "recipe": "Haddock fillet with shawarma spices, wrapped in smoked bacon, served with pea purée.",
+      "image": "https://i.ibb.co/2Y2mvG9/shawarma5.jpg",
+      "category": "shawarma",
+      "price": 12.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee96",
+      "name": "BBQ Veal Parmentier",
+      "recipe": "Sautéed breaded veal escalope with BBQ sauce, served with watercress and lemon.",
+      "image": "https://i.ibb.co/fqcQV0W/BBQ4.jpg",
+      "category": "bbq",
+      "price": 9.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee81",
+      "name": "Niçoise Tuna Elegance",
+      "recipe": "Warm goat cheese and roasted vegetable salad with black olive tapenade crostini.",
+      "image": "https://i.ibb.co/WKWPxn3/coffe5.jpg",
+      "category": "offered",
+      "price": 10.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee84",
+      "name": "Spiced Shawarma Duck",
+      "recipe": "Roasted duck breast with shawarma seasoning, served with a spiced fruit compote and rice.",
+      "image": "https://i.ibb.co/wz1ZQdt/shawarma6.jpg",
+      "category": "shawarma",
+      "price": 14.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36eea4",
+      "name": "Savory Grilled Pork Belly",
+      "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme, and calvados jus.",
+      "image": "https://i.ibb.co/yVD5pGq/Grill-5.jpg",
+      "category": "Grill",
+      "price": 13.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36eea5",
+      "name": "Grilled Veal Parmentier",
+      "recipe": "Sautéed breaded veal escalope with watercress, lemon, and veal jus.",
+      "image": "https://i.ibb.co/9V8GsxQ/Grill-6.jpg",
+      "category": "Grill",
+      "price": 9.5
+  },
+  {
+      "_id": "642c155b2c4774f05c36ee87",
+      "name": "Grilled Chicken Symphony",
+      "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme, and calvados jus.",
+      "image": "https://i.ibb.co/2q829Pz/Grill-8.jpg",
+      "category": "Grill",
+      "price": 13.5
+  }
+]
