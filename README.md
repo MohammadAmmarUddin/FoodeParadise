@@ -59,18 +59,8 @@ cd foodparadise
 
 🧾 Generates real-time payment confirmation
 
-
-📸 Screenshots
-
-
 🧑‍💻 Author
-
 Mohammad Ammar
-🌐 Portfolio
- | 💼 LinkedIn
- | 🐙 GitHub
-
 
 📜 License
-
 This project is open-source and available under the MIT License.
