@@ -17,8 +17,7 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
-      .then((result) => {
-        const loggedUser = result.user;
+      .then(() => {
         Swal.fire("Account Created!");
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
@@ -32,7 +31,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="md:min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4">
+    <div className="md:min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 p-4">
       <div className="w-full max-w-md bg-white rounded-3xl p-6 md:p-8 flex flex-col justify-center">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Create Account
@@ -44,7 +43,7 @@ const SignUp = () => {
             type="text"
             {...register("name", { required: true, pattern: /^[A-Za-z\s]+$/ })}
             placeholder="Full Name"
-            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.name && (
             <p className="text-red-500 text-sm">Name is required</p>
@@ -55,7 +54,7 @@ const SignUp = () => {
             type="text"
             {...register("photoURL", { required: true })}
             placeholder="Photo URL"
-            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.photoURL && (
             <p className="text-red-500 text-sm">Photo URL is required</p>
@@ -66,7 +65,7 @@ const SignUp = () => {
             type="email"
             {...register("email", { required: true })}
             placeholder="Email"
-            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.email && (
             <p className="text-red-500 text-sm">Email is required</p>
@@ -83,7 +82,7 @@ const SignUp = () => {
                 /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/,
             })}
             placeholder="Password"
-            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.password?.type === "required" && (
             <p className="text-red-500 text-sm">Password is required</p>
@@ -104,20 +103,29 @@ const SignUp = () => {
             </p>
           )}
 
-          {/* Submit */}
-          <button
-            type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl transition duration-300"
-          >
-            Register
-          </button>
+          {/* Buttons */}
+          <div className="flex flex-col md:flex-row gap-3">
+            <button
+              type="submit"
+              className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-xl transition duration-300"
+            >
+              Register
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 rounded-xl transition duration-300"
+            >
+              Return
+            </button>
+          </div>
         </form>
 
         <p className="text-center mt-4 text-gray-600 text-sm">
           Already have an account?{" "}
           <Link
             to="/login"
-            className="text-blue-500 hover:text-blue-700 font-medium"
+            className="text-orange-500 hover:text-orange-600 font-medium"
           >
             Login
           </Link>

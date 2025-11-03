@@ -72,7 +72,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="md:h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4">
       {/* Left Side: Image (hidden on mobile) */}
       <div className="hidden md:flex w-1/2 justify-center items-center">
         <img
@@ -83,27 +83,29 @@ const Login = () => {
       </div>
 
       {/* Right Side: Form */}
-      <div className="w-full md:w-1/2 max-w-md bg-white rounded-3xl p-6 md:p-8 m-2 md:m-6 flex flex-col justify-center">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
+      <div className="w-full md:w-1/2 max-w-md bg-white rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Welcome Back!
         </h2>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4">
+          {/* Email */}
           <input
             type="email"
             {...register("email", { required: true })}
             placeholder="Email"
-            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-full px-4 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
           {errors.email && (
             <p className="text-red-500 text-sm">Email is required</p>
           )}
 
+          {/* Password */}
           <input
             type="password"
             {...register("password", { required: true, minLength: 6 })}
             placeholder="Password"
-            className="w-full px-4 py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-full px-4 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
           {errors.password && (
             <p className="text-red-500 text-sm">
@@ -111,32 +113,45 @@ const Login = () => {
             </p>
           )}
 
-          <div className="flex items-center gap-2">
+          {/* Captcha */}
+          <div className="flex flex-col sm:flex-row items-center gap-2">
             <LoadCanvasTemplate />
             <input
               type="text"
-              placeholder=" Enter captcha"
+              placeholder="Enter captcha"
               onBlur={handleValidateCaptcha}
-              className="flex-1 md:px-3  py-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="flex-1 px-3 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
               required
             />
           </div>
 
+          {/* Login button */}
           <button
             type="submit"
             disabled={disabled}
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl transition duration-300 disabled:opacity-50"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-xl transition duration-300 disabled:opacity-50"
           >
             Login
           </button>
+
+          {/* Return to Home button */}
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 rounded-xl transition duration-300"
+          >
+            Return to Home
+          </button>
         </form>
 
-        <div className="flex items-center my-3">
+        {/* Divider */}
+        <div className="flex items-center my-3 w-full">
           <hr className="flex-grow border-gray-300" />
           <span className="mx-2 text-gray-400 font-medium">or</span>
           <hr className="flex-grow border-gray-300" />
         </div>
 
+        {/* Google Login */}
         <button
           onClick={handleGoogleLogin}
           className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-gray-300 rounded-xl bg-white text-gray-800 font-medium hover:bg-gray-50 transition duration-300"
