@@ -1,60 +1,79 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-import slide1 from "/images/home/slide1.jpg";
-import slide2 from "/images/home/slide2.jpg";
-import slide3 from "/images/home/Grill.jpg";
-import slide4 from "/images/home/burger.jpg";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+
+const categories = [
+  { name: "Coffee", img: "/images/menu/coffee.jpg" },
+  { name: "Burger", img: "/images/menu/Grill.jpg" },
+  { name: "Grill", img: "/images/menu/bbq.jpg" },
+  { name: "Shawarma", img: "/images/home/featuredBg.jpg" },
+];
 
 const Category = () => {
   return (
-    <section>
-      <SectionTitle
-        subHeading={"From 11.00am to 10.00pm"}
-        heading={"Order Online"}
-      ></SectionTitle>
-      <Swiper
-    
-        slidesPerView={4}
-        spaceBetween={30}
-        centeredSlides={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper mb-24"
+    <section className="my-16 px-4 md:px-8">
+      <SectionTitle heading="Categories" subHeading="Explore our categories" />
+
+      <div
+        className="
+          grid 
+          grid-cols-2 
+          sm:grid-cols-3 
+          md:grid-cols-4 
+          gap-4 
+          md:gap-6 
+          mt-8
+        "
       >
-        <SwiperSlide >
-          <img src={slide1} className="h-[400px] " alt="" />
-          <h3 className="text-center absolute left-0  bottom-0 text-white bg-gray-500 p-3 rounded-md font-bold -mt-16 uppercase lg:text-lg">
-            coffee
-          </h3>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide2} className="h-[400px] " alt="" />
-          <h3 className="text-center absolute left-0 bottom-0 text-white bg-gray-500 p-3 rounded-md font-bold -mt-16 uppercase lg:text-lg">
-            shawarma
-          </h3>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide3} className="h-[400px]" alt="" />
-          <h3 className="text-center absolute left-0 bottom-0 text-white bg-gray-500 p-3 rounded-md font-bold -mt-16 uppercase lg:text-lg">
-            Grill
-          </h3>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide4} className="h-[400px]" alt="" />
-          <h3 className="text-center absolute left-0 bottom-0 text-white bg-gray-500 p-3 rounded-md font-bold -mt-16 uppercase lg:text-lg">
-            Burger
-          </h3>
-        </SwiperSlide>
-      </Swiper>
+        {categories.map((cat) => (
+          <div
+            key={cat.name}
+            className="
+              relative 
+              cursor-pointer 
+              group 
+              overflow-hidden 
+              rounded-xl 
+              shadow-md 
+              hover:shadow-xl 
+              transition-shadow 
+              duration-300
+            "
+          >
+            <img
+              src={cat.img}
+              alt={cat.name}
+              className="
+                w-full 
+                h-32 
+                sm:h-40 
+                md:h-48 
+                lg:h-56 
+             
+                transition-transform 
+                group-hover:scale-110
+              "
+            />
+            <div
+              className="
+                absolute 
+                inset-0 
+                bg-black 
+                bg-opacity-40 
+                flex 
+                items-center 
+                justify-center 
+                opacity-0 
+                group-hover:opacity-100 
+                transition-opacity 
+                duration-300
+              "
+            >
+              <h3 className="text-white text-lg md:text-xl font-semibold tracking-wide">
+                {cat.name}
+              </h3>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

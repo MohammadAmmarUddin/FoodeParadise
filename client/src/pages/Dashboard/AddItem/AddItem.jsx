@@ -5,8 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const hosting_key = "31b8c3042470c9673a22cc6767e6a68f";
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${hosting_key}`;
+const image_hosting_api = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
 const AddItem = () => {
   //   const axiosPublic = useAxiosPublic();

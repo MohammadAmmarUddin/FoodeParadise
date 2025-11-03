@@ -1,25 +1,25 @@
 import { Helmet } from "react-helmet-async";
-import Banner from "../Banner";
 import Category from "../Category/Category,";
-import Featured from "../Featured/Featured";
 import PopularMenu from "../PopularMenu/PopularMenu";
-import Testimonials from "../Testimonials/Testimonials";
+import Featured from "../Featured/Featured.jsx";
+import Banner from "../Banner.jsx";
+import Testimonials from "../Testimonials/Testimonials.jsx";
 import ScrollToTop from "react-scroll-to-top";
 
 const Home = () => {
   return (
-    <div className="">
+    <div>
       <Helmet>
         <title>foodparadise | HOME</title>
       </Helmet>
+      {/* Spacer to prevent Navbar overlap */}
+      <div className="h-16" /> {/* Equal to Navbar height */}
       <div className="max-w-7xl mx-auto">
-        <Banner></Banner>
-        <Category></Category>
-        <PopularMenu></PopularMenu>
-
-        <Featured></Featured>
-
-        <Testimonials></Testimonials>
+        <Banner />
+        <Category />
+        <PopularMenu />
+        <Featured />
+        <Testimonials />
       </div>
       <ScrollToTop
         smooth

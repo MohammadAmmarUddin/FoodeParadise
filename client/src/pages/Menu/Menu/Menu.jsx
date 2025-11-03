@@ -4,74 +4,64 @@ import menuImg from "/images/menu/banner3.jpg";
 import useMenu from "../../../hooks/useMenu";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
-import coffee from "/images/menu/coffee.jpg";
+import coffeeImg from "/images/menu/coffee.jpg";
 import bbqImg from "/images/menu/bbq.jpg";
-import sharmaImg from "/images/home/featuredBg.jpg";
+import shawarmaImg from "/images/home/featuredBg.jpg";
 import burgerImg from "/images/menu/Grill.jpg";
 
 const Menu = () => {
   const [menu] = useMenu();
-  console.log(menu);
-  
-  const coffees = menu.filter((item) => item.category === "coffee");
 
-  const Grills = menu.filter((item) => item.category === "Grill");
+  const coffees = menu.filter((item) => item.category === "coffee");
+  const grills = menu.filter((item) => item.category === "Grill");
   const shawarmas = menu.filter((item) => item.category === "shawarma");
   const burgers = menu.filter((item) => item.category === "burger");
-  // const offered = menu.filter((item) => item.category === "Offered");
 
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-7xl px-4 md:px-8">
       <Helmet>
-        <title>foodparadise | Menu</title>
+        <title>FoodParadise | Menu</title>
       </Helmet>
-      {/* COFFEE SECTION  */}
-      <Cover img={menuImg} title={"OUR MENU"}></Cover>
 
-      <SectionTitle
-        subHeading={"Donot miss our offer"}
-        heading={"TODAY'S  OFFER"}
-      ></SectionTitle>
+      {/* PAGE COVER */}
+      <Cover img={menuImg} title="OUR MENU" />
 
-      <MenuCategory
-        items={coffees}
-        title={"COFFEE"}
-        coverImg={coffee}
-      ></MenuCategory>
+      {/* TODAY'S OFFER */}
+      <section className="my-12">
+        <SectionTitle
+          heading="TODAY'S OFFER"
+          subHeading="Don't miss our special items"
+        />
+        <MenuCategory items={coffees} title="COFFEE" coverImg={coffeeImg} />
+      </section>
 
-      {/* SHAWARMA SECTION  */}
+      {/* GRILL SECTION */}
+      <section className="my-12">
+        <SectionTitle
+          heading="GRILL SPECIALS"
+          subHeading="Deliciously Grilled for You"
+        />
+        <MenuCategory items={grills} title="GRILL" coverImg={bbqImg} />
+      </section>
 
-      <SectionTitle
-        subHeading={"Grill"}
-        heading={"TODAY'S  OFFER"}
-      ></SectionTitle>
+      {/* SHAWARMA SECTION */}
+      <section className="my-12">
+        <SectionTitle heading="SHAWARMA" subHeading="Juicy & Flavorful" />
+        <MenuCategory
+          items={shawarmas}
+          title="SHAWARMA"
+          coverImg={shawarmaImg}
+        />
+      </section>
 
-      <MenuCategory
-        items={Grills}
-        title={"Grill"}
-        coverImg={bbqImg}
-      ></MenuCategory>
-
-      <SectionTitle
-        subHeading={"SHAWARMA"}
-        heading={"TODAY'S  OFFER"}
-      ></SectionTitle>
-
-      <MenuCategory
-        items={shawarmas}
-        title={"SHAWARMA"}
-        coverImg={sharmaImg}
-      ></MenuCategory>
-      <SectionTitle
-        subHeading={"Burger"}
-        heading={"TODAY'S  OFFER"}
-      ></SectionTitle>
-
-      <MenuCategory
-        items={burgers}
-        title={"Burger"}
-        coverImg={burgerImg}
-      ></MenuCategory>
+      {/* BURGER SECTION */}
+      <section className="my-12">
+        <SectionTitle
+          heading="BURGER DELIGHTS"
+          subHeading="Burgers You Can't Resist"
+        />
+        <MenuCategory items={burgers} title="BURGER" coverImg={burgerImg} />
+      </section>
     </div>
   );
 };

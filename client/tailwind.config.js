@@ -4,15 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
+        // your previous custom colors
         navy: {
           900: "#0a0f2c",
           800: "#10194e",
         },
+        // new theme colors
+        primary: "#16a34a", // nice green tone
+        accent: "#f59e0b", // warm orange
       },
       fontFamily: {
         custom: ["Saira", "sans-serif"],
-        // If using Google Font, replace 'CustomFont' with 'Roboto'
-        // custom: ['Roboto', 'sans-serif'],
+        // Example: custom: ['Roboto', 'sans-serif'],
       },
     },
   },

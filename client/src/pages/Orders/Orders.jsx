@@ -9,8 +9,7 @@ import OrderTab from "./orderTab/OrderTab";
 import { useParams } from "react-router-dom";
 
 const Orders = ({ items }) => {
-  
-  const categories = ["COFFEE", "BBQ", "SHAWARMA"];
+  const categories = ["COFFEE", "GRILL", "BBQ", "SHAWARMA"];
   const { category } = useParams();
 
   const initialIndex = categories.indexOf(category);

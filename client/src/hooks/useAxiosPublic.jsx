@@ -1,8 +1,11 @@
+// src/hooks/useAxiosPublic.js
 import axios from "axios";
 
 const axiosPublic = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: import.meta.env.VITE_API_BASE_URL, // ✅ auto-picks from .env
+  withCredentials: true, // optional, only if you use cookies/sessions
 });
+
 const useAxiosPublic = () => {
   return axiosPublic;
 };

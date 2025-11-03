@@ -6,32 +6,36 @@ import { useNavigate } from "react-router-dom";
 const SocialLogin = () => {
   const navigate = useNavigate();
   const { googleLogin } = useAuth();
-
-  //   const [users] =useUsers()
   const axiosPublic = useAxiosSecure();
-  const handleGoogleLogin = () => {
-    googleLogin().then((result) => {
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await googleLogin();
       console.log(result.user);
-      const userInfo =  {
+
+      const userInfo = {
         name: result.user?.displayName,
         email: result.user?.email,
         photo: result.user?.photoURL,
       };
 
-      axiosPublic
-        .post("/users", userInfo)
-        .then(() => console.log("user done added"));
-    });
-    navigate("/");
+      await axiosPublic.post("/users", userInfo);
+      console.log("User added successfully");
+
+      navigate("/");
+    } catch (error) {
+      console.error("Google login failed:", error);
+    }
   };
 
   return (
-    <div>
+    <div className="flex justify-center mb-6">
       <button
-        className="btn btn-sm btn-warning mt-10 mx-24"
         onClick={handleGoogleLogin}
+        className="flex items-center justify-center gap-3 w-full max-w-sm px-4 py-3 border border-gray-300 rounded-lg shadow hover:shadow-lg transition duration-300 bg-white text-gray-800 font-medium hover:bg-gray-100"
       >
-        <FaGoogle></FaGoogle> Google Login
+        <FaGoogle className="text-red-500 text-lg" />
+        <span>Continue with Google</span>
       </button>
     </div>
   );

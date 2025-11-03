@@ -13,116 +13,131 @@ import useAdmin from "../hooks/useAdmin";
 import useCart from "../hooks/useCart";
 import useAuth from "../hooks/useAuth";
 
-const navLinkStyle = ({ isActive }) => ({
-  backgroundColor: isActive ? "green" : "transparent",
-  borderRadius: "4px",
-});
-
 const Dashboard = () => {
   const { user } = useAuth();
   const [cart] = useCart();
-  const [isAdmin,isAdminLoading] = useAdmin();
+  const [isAdmin, isAdminLoading] = useAdmin();
 
-    if(isAdminLoading)
-    {
-      return <span className="loading loading-spinner loading-lg"></span>
-    }
+  if (isAdminLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-spinner loading-lg text-orange-600"></span>
+      </div>
+    );
+  }
+
+  const navLinkStyle = ({ isActive }) => ({
+    background: isActive
+      ? "linear-gradient(to right, #f97316, #fb923c)"
+      : "transparent",
+    borderRadius: "8px",
+    color: "white",
+    fontWeight: isActive ? "bold" : "normal",
+    transition: "all 0.3s ease",
+  });
+
   return (
-    <div className="flex text-white ">
-      <div className="w-64 min-h-screen  bg-orange-700 ">
-        <div className="avatar mt-10">
-          <div className="w-24 rounded-full mx-10">
-            <img src={user?.photoURL} alt="Upload" />
+    <div className="flex min-h-screen bg-gradient-to-r from-orange-50 to-orange-100">
+      {/* Sidebar */}
+      <div className="w-72 bg-gradient-to-b from-orange-700 to-orange-500 shadow-xl text-white flex flex-col">
+        {/* Profile Section */}
+        <div className="flex flex-col items-center mt-10 mb-6">
+          <div className="avatar">
+            <div className="w-24 rounded-full ring ring-white ring-offset-2 ring-offset-orange-500 shadow-lg">
+              <img
+                src={
+                  user?.photoURL ||
+                  "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                }
+                alt="User"
+              />
+            </div>
           </div>
+          <h2 className="mt-3 text-lg font-semibold">
+            {user?.displayName || "Guest User"}
+          </h2>
+          <p className="text-xs text-orange-100">
+            {isAdmin ? "Administrator" : "Customer"}
+          </p>
         </div>
-        <h2 className="mx-8">{user?.displayName}</h2>
-        <ul className="menu p-4">
+
+        <ul className="menu p-4 space-y-1 flex-1 text-sm font-medium">
           {isAdmin ? (
             <>
               <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/adminHome"}>
-                  <FaHome></FaHome>Admin Home
+                <NavLink style={navLinkStyle} to="/dashboard/adminHome">
+                  <FaHome className="text-lg" /> Admin Home
                 </NavLink>
               </li>
               <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/addItems"}>
-                  <FaUtensilSpoon></FaUtensilSpoon>Add Item
+                <NavLink style={navLinkStyle} to="/dashboard/addItems">
+                  <FaUtensilSpoon className="text-lg" /> Add Item
                 </NavLink>
               </li>
               <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/manageItems"}>
-                  <FaList />
-                  Manage Item
+                <NavLink style={navLinkStyle} to="/dashboard/manageItems">
+                  <FaList className="text-lg" /> Manage Items
                 </NavLink>
               </li>
+
               <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/bookings"}>
-                  <FaAd />
-                  Manage Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/allUsers"}>
-                  <FaUsers />
-                  All Users
+                <NavLink style={navLinkStyle} to="/dashboard/allUsers">
+                  <FaUsers className="text-lg" /> All Users
                 </NavLink>
               </li>
             </>
           ) : (
             <>
               <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/userHome"}>
-                  <FaHome></FaHome>User Home
+                <NavLink style={navLinkStyle} to="/dashboard/userHome">
+                  <FaHome className="text-lg" /> User Home
                 </NavLink>
               </li>
               <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/paymentHistory"}>
-                  {" "}
-                  <FaCalendar></FaCalendar>Payment History
+                <NavLink style={navLinkStyle} to="/dashboard/paymentHistory">
+                  <FaCalendar className="text-lg" /> Payment History
                 </NavLink>
               </li>
               <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/cart"}>
-                  {" "}
-                  <FaShoppingCart />
-                  My Cart({cart.length})
+                <NavLink style={navLinkStyle} to="/dashboard/cart">
+                  <FaShoppingCart className="text-lg" /> My Cart ({cart.length})
                 </NavLink>
               </li>
               <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/userRating"}>
-                  {" "}
-                  <FaAd />
-                  Add a Review
+                <NavLink style={navLinkStyle} to="/dashboard/userRating">
+                  <FaAd className="text-lg" /> Add a Review
                 </NavLink>
               </li>
-              <li>
-                <NavLink style={navLinkStyle} to={"/dashboard/review"}>
-                  {" "}
-                  <FaList />
-                  My Bookings
+              {/* <li>
+                <NavLink style={navLinkStyle} to="/dashboard/review">
+                  <FaList className="text-lg" /> My Bookings
                 </NavLink>
-              </li>
+              </li> */}
             </>
           )}
-          {/* shared  content */}
+
+          {/* shared links */}
           <div className="divider divider-neutral"></div>
           <li>
-            <NavLink style={navLinkStyle} to={"/"}>
-              {" "}
-              <FaHome></FaHome> Home
+            <NavLink style={navLinkStyle} to="/">
+              <FaHome className="text-lg" /> Home
             </NavLink>
           </li>
           <li>
-            <NavLink style={navLinkStyle} to={"/menu"}>
-              {" "}
-              <FaSearch />
-              Menu
+            <NavLink style={navLinkStyle} to="/menu">
+              <FaSearch className="text-lg" /> Menu
             </NavLink>
           </li>
         </ul>
+
+        <p className="text-center text-xs text-orange-100 mb-4 opacity-70">
+          © {new Date().getFullYear()} Food Paradise
+        </p>
       </div>
-      <div className="p-8 flex-1 text-black">
-        <Outlet></Outlet>
+
+      {/* Main content */}
+      <div className="flex-1 p-8 bg-white rounded-tl-3xl shadow-inner">
+        <Outlet />
       </div>
     </div>
   );

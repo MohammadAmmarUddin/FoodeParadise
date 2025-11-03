@@ -5,8 +5,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-const hosting_key = "31b8c3042470c9673a22cc6767e6a68f";
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${hosting_key}`;
+const image_hosting_api = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const UpdateItem = () => {
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
@@ -124,7 +123,7 @@ const UpdateItem = () => {
               <span className="label-text"></span>
             </label>
             <img src={image} className="w-20 rounded mb-2" alt="" />
-            <input type="file"  {...register("image")} />
+            <input type="file" {...register("image")} />
           </div>
 
           <button

@@ -6,11 +6,11 @@ import useCart from "../../hooks/useCart";
 
 const FoodCard = ({ item }) => {
   const navigate = useNavigate();
-  const { name, image, recipe, price,category, _id } = item;
+  const { name, image, recipe, price, category, _id } = item;
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
   const location = useLocation();
-  const [,refetch]= useCart()
+  const [, refetch] = useCart();
 
   const handleAddToCart = () => {
     if (user && user.email) {
@@ -23,56 +23,55 @@ const FoodCard = ({ item }) => {
         price,
       };
       axiosSecure.post("/carts", cartItem).then((res) => {
-        // console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Your cart is saved",
+            title: "Added to Cart!",
             showConfirmButton: false,
             timer: 1500,
           });
         }
-        // refetch the  cart updated the cart count
-        refetch()
+        refetch();
       });
     } else {
       Swal.fire({
-        title: "You are not logged In",
-        text: "Please Login to Add to Cart!",
+        title: "You are not logged in",
+        text: "Please login to add items to cart!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes,Login!",
+        confirmButtonColor: "#16a34a",
+        cancelButtonColor: "#f87171",
+        confirmButtonText: "Login",
       }).then((result) => {
         if (result.isConfirmed) {
-          // send the user to login page
-
           navigate("/login", { state: { from: location } });
         }
       });
     }
   };
+
   return (
-    <div className="card bg-base-100 w-96 shadow-xl">
-      <figure className="px-10 pt-10">
-        <img src={image} alt="Shoes" className="rounded-xl w-[200px] h-[200px]" />
+    <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+      <figure className="relative">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-56 object-cover rounded-t-2xl transition-transform duration-300 hover:scale-105"
+        />
+        <span className="absolute top-3 right-3 bg-gradient-to-r from-green-400 to-green-600 text-white font-bold px-4 py-2 rounded-full shadow-lg">
+          ${price.toFixed(2)}
+        </span>
       </figure>
-      <p className="bg-slate-800 text-green-500 absolute right-0 mr-10 mt-12 p-2 rounded">
-        {price}
-      </p>
-      <div className="card-body items-center text-center">
-        <h2 className="card-title">{name}</h2>
-        <p>{recipe}</p>
-        <div className="card-actions">
-          <button
-            onClick={handleAddToCart}
-            className="btn btn-primary"
-          >
-            Add to Cart
-          </button>
-        </div>
+      <div className="p-6 flex flex-col items-center text-center">
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">{name}</h2>
+        <p className="text-gray-600 mb-4">{recipe}</p>
+        <button
+          onClick={handleAddToCart}
+          className="bg-gradient-to-r from-green-400 to-green-600 text-white px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );

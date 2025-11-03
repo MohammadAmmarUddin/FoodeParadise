@@ -3,19 +3,44 @@ import MenuItem from "../../Shared/MenuItem/MenuItem";
 import useMenu from "../../../hooks/useMenu";
 
 const PopularMenu = () => {
-        
-    const [menu ]= useMenu();
+  const [menu] = useMenu();
+  const popular = menu.filter((item) => item.category === "popular");
 
-     const popular = menu.filter(item=>item.category==='popular' )
   return (
-    <section className="mb-12">
-      <SectionTitle heading={"Popular Items"} subHeading={"OUR MENU"}></SectionTitle>
+    <section className="my-16 px-4 md:px-8">
+      <SectionTitle heading="Popular Items" subHeading="OUR MENU" />
 
-      <div className="grid grid-cols-2 gap-4">
-         {
-        popular.map(item=><MenuItem key={item._id} item={item} ></MenuItem>)
-      }</div>
-     
+      {popular.length === 0 ? (
+        <div className="flex justify-center items-center py-20 text-gray-500">
+          <p className="text-lg animate-pulse">Loading popular dishes...</p>
+        </div>
+      ) : (
+        <div
+          className="
+            grid 
+            grid-cols-1 
+            sm:grid-cols-2 
+            md:grid-cols-3 
+            lg:grid-cols-4 
+            gap-6 
+            mt-10
+          "
+        >
+          {popular.map((item) => (
+            <div
+              key={item._id}
+              className="
+                hover:scale-[1.02] 
+                transition-transform 
+                duration-300 
+                ease-in-out
+              "
+            >
+              <MenuItem item={item} />
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

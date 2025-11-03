@@ -1,27 +1,35 @@
 import { FaLocationPin, FaPhone } from "react-icons/fa6";
-import logo from "/images/logo/logo.png"
+import logo from "/images/logo/logo.png";
 import { FaMailBulk } from "react-icons/fa";
 const Footer = () => {
   return (
     <div>
       <footer className="footer p-10 text-white bg-neutral text-neutral-content">
         <aside>
-        <img src={logo} className="w-20 rounded-lg" alt="" />
+          <img src={logo} className="w-20 rounded-lg" alt="" />
           <p>
-           Best Food Resturant 
+            Best Food Resturant
             <br />
             Providing reliable service since 2020
           </p>
-          <p className="flex items-center"><FaLocationPin className="mr-2 text-yellow-300"></FaLocationPin>32 Gec Bangladesh</p>
-          <p className="flex items-center"><FaPhone className="mr-2 text-yellow-300"></FaPhone> +880 188333****</p>
-          <p className="flex items-center"><FaMailBulk className="mr-2 text-yellow-300"></FaMailBulk>foodparadise@gmail.com</p>
+          <p className="flex items-center">
+            <FaLocationPin className="mr-2 text-yellow-300"></FaLocationPin>32
+            Gec Bangladesh
+          </p>
+          <p className="flex items-center">
+            <FaPhone className="mr-2 text-yellow-300"></FaPhone> +880 188333****
+          </p>
+          <p className="flex items-center">
+            <FaMailBulk className="mr-2 text-yellow-300"></FaMailBulk>
+            foodparadise@gmail.com
+          </p>
         </aside>
         <nav>
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
             <a>
               <svg
-               color="yellow"
+                color="yellow"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -33,7 +41,7 @@ const Footer = () => {
             </a>
             <a>
               <svg
-                 color="yellow"
+                color="yellow"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -44,7 +52,8 @@ const Footer = () => {
               </svg>
             </a>
             <a>
-              <svg   color="cyan"
+              <svg
+                color="cyan"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -59,7 +68,9 @@ const Footer = () => {
       </footer>
 
       <div>
-        <p className="text-center">Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+        <p className="text-center">
+          Copyright © 2024 - All right reserved by ACME Industries Ltd
+        </p>
       </div>
     </div>
   );
