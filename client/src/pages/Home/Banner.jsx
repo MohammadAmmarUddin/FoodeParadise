@@ -47,7 +47,7 @@ const Banner = () => {
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh]"
+            className="relative w-full h-[30vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh]"
           >
             {/* Background image */}
             <img
