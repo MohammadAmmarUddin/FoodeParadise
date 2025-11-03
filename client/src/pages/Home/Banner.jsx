@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import img1 from "/images/home/01.png";
 import img2 from "/images/home/02.png";
 import img3 from "/images/home/03.png";
+import { useNavigate } from "react-router-dom";
 
 const slides = [
   {
@@ -31,6 +32,7 @@ const slides = [
 ];
 
 const Banner = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full overflow-hidden">
       <Carousel
@@ -84,7 +86,7 @@ const Banner = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-full shadow-lg transition-all duration-300"
-                onClick={() => (window.location.href = "/menu")}
+                onClick={() => navigate("/menu")}
               >
                 {slide.button}
               </motion.button>
